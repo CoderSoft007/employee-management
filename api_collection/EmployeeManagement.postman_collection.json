@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "e49a2c5f-af1d-417f-8c51-b868aeea7dfe",
+		"name": "Emp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4295177",
+		"_collection_link": "https://bold-robot-640494.postman.co/workspace/South-Wind~cd4c83fa-e89f-4b4b-b689-0aec6e47b3bc/collection/4295177-e49a2c5f-af1d-417f-8c51-b868aeea7dfe?action=share&source=collection_link&creator=4295177"
+	},
+	"item": [
+		{
+			"name": "List all departments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/departments",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create department",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ROLE",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "HR",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/departments",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/employees?page=1&per_page=5",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "5"
+						},
+						{
+							"key": "department_id",
+							"value": "3",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": null,
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X_ROLE",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "john@example.com",
+							"type": "text"
+						},
+						{
+							"key": "department_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "50000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/employees",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-ROLE",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "y@y.com",
+							"description": "d@y.com/ y@y.com / ahmed.nawaz@1800gotjunk.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "junk123",
+							"description": "123456 / junk123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/employees/1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"employees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
